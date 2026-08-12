@@ -23,29 +23,27 @@ tabs:
 navigation:
   - tab: home
     layout:
-      - section: Get started
+      - section: Overview
         contents:
           - page: Welcome
             path: docs/pages/welcome.mdx
             icon: fa-duotone fa-house
-          - page: Edit your docs
-            path: docs/pages/editing-your-docs.mdx
-            icon: fa-duotone fa-pen-to-square
-          - page: Write content
-            path: docs/pages/writing-content.mdx
-            icon: fa-duotone fa-file-lines
-          - page: Set up navigation
-            path: docs/pages/navigation.mdx
-            icon: fa-duotone fa-sitemap
-          - page: Customize your docs
-            path: docs/pages/customization.mdx
-            icon: fa-duotone fa-palette
-          - page: Support
-            path: docs/pages/support.mdx
-            icon: fa-duotone fa-headset
-      - section: Changelog
+          - page: Goals
+            path: docs/pages/goals.mdx
+            icon: fa-duotone fa-bullseye-arrow
+      - section: The platform
         contents:
-          - changelog: docs/changelog
+          - page: Business domains
+            path: docs/pages/domains.mdx
+            icon: fa-duotone fa-hospital
+          - page: Use cases
+            path: docs/pages/use-cases.mdx
+            icon: fa-duotone fa-diagram-project
+      - section: Get started
+        contents:
+          - page: Run it locally
+            path: docs/pages/run-locally.mdx
+            icon: fa-duotone fa-terminal
   - tab: API Reference
     layout:
       - section: Overview
