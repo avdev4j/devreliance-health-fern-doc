@@ -53,7 +53,10 @@ navigation:
           - page: API reference
             path: docs/pages/api-reference-overview.mdx
             icon: fa-duotone fa-book
+      # api-name is required now that fern/apis/ holds more than one API.
+      # It matches the folder name, which for prescriptions is `openapi`.
       - api: prescriptions-service
+        api-name: openapi
         flattened: false
 navbar-links:
   - type: filled
