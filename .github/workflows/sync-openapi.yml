@@ -1,0 +1,26 @@
+name: sync-openapi
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 03:00 UTC.
+    - cron: "0 3 * * *"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Sync OpenAPI spec
+        uses: fern-api/sync-openapi@v2
+        with:
+          # Runs `fern api update`, pulling each spec from the `origin` declared
+          # in fern/apis/*/generators.yml, and opens a PR when the diff is not empty.
+          update_from_source: true
+          branch: update-api
+          auto_merge: false
+          add_timestamp: true
+          # Fine-grained PAT with Contents + Pull requests read/write on this repo.
+          token: ${{ secrets.OPENAPI_SYNC_TOKEN }}

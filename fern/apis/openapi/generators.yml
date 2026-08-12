@@ -2,8 +2,8 @@
 
 api:
   specs:
-    - openapi:
-        git:
-          repo: https://github.com/healthcare-org-app/healthcare-prescriptions
-          ref: main
-          path: openapi.yaml
+    # The spec is vendored here so every upstream change lands as a reviewable
+    # diff. Do not hand-edit openapi.yaml — `fern api update` overwrites it from
+    # `origin` (see .github/workflows/sync-openapi.yml).
+    - openapi: openapi.yaml
+      origin: https://raw.githubusercontent.com/healthcare-org-app/healthcare-prescriptions/main/openapi.yaml
