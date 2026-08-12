@@ -87,7 +87,7 @@ logo:
   light: docs/assets/wordmark-light.svg
   height: 20
   href: /
-favicon: docs/assets/favicon.svg
+favicon: docs/assets/Postman_Logomark_orange.svg
 css:
   - docs/assets/onboarding-theme.css
 typography:
