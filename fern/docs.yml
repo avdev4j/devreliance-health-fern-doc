@@ -81,7 +81,6 @@ logo:
   href: https://buildwithfern.com
 favicon: docs/assets/favicon.svg
 css:
-  - styles.css
   - docs/assets/onboarding-theme.css
 typography:
   headingsFont:
