@@ -8,7 +8,7 @@ instances:
         repo: postman-devrel-900197
         branch: main
       launch: dashboard
-title: DevReliance Health | Documentation
+title: MyHealtcare.dev | Documentation
 layout:
   searchbar-placement: header
   page-width: full

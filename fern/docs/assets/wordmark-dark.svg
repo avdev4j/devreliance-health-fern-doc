@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 22" width="210" height="22" role="img" aria-label="DevReliance Health">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 22" width="190" height="22" role="img" aria-label="MyHealtcare.dev">
   <!-- Interim wordmark pending the design team. One <text> with a <tspan> so the
-       second word follows the first regardless of which font the browser resolves;
+       suffix follows the name regardless of which font the browser resolves;
        a hardcoded x would overlap or gap when Inter is unavailable.
        Colours are official Postman 2026 palette: O:80 light, O:60 dark. -->
-  <text x="0" y="16" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="17" letter-spacing="-0.3" fill="#FFFFFF" font-weight="650">DevReliance<tspan fill="#FF6C37" font-weight="450" dx="6">Health</tspan></text>
+  <text x="0" y="16" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="17" letter-spacing="-0.3" fill="#FFFFFF" font-weight="650">MyHealtcare<tspan fill="#FF6C37" font-weight="450">.dev</tspan></text>
 </svg>
