@@ -53,16 +53,11 @@ navigation:
           - page: API reference
             path: docs/pages/api-reference-overview.mdx
             icon: fa-duotone fa-book
-      # api-name is required now that fern/apis/ holds more than one API.
-      # It matches the folder name — for prescriptions that folder is `openapi`.
-      - api: appointments-service
-        api-name: appointments
-        flattened: false
-      - api: appointment-slots-service
-        api-name: appointment-slots
-        flattened: false
-      - api: prescriptions-service
-        api-name: openapi
+      # Every service spec is composed into one API; api-name matches the
+      # fern/apis/ folder. Per-service grouping comes from the namespaces
+      # declared in that folder's generators.yml.
+      - api: healthcare-org
+        api-name: healthcare-org
         flattened: false
 navbar-links:
   - type: filled
