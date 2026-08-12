@@ -1,6 +1,6 @@
 ---
-title: Welcome to DevReliance Health!
-subtitle: Everything you need to build the best developer experience.
+title: DevReliance Health
+subtitle: A production-shaped healthcare platform, built to be documented, tested, and explored at real scale.
 slug: welcome
 hide-page-actions: true
 hide-nav-links: true
@@ -13,57 +13,48 @@ layout: overview
   <img src="../assets/welcome-dark.jpg" className="hidden dark:block" style={{pointerEvents:'none',cursor:'default',transform:'none',transition:'none',animation:'none'}} />
 </div>
 
-## Products
+**DevReliance Health** is the documentation surface for `healthcare-org` — a canonical demo platform maintained by the Postman Developer Relations team, with source at [github.com/healthcare-org-app](https://github.com/healthcare-org-app).
+
+It models a hospital group's software estate the way one actually looks: **101 independently-deployable services** across fourteen business domains, talking over HTTP and Kafka, each owning its own database, plus event-driven integration into an external ERP owned by a different organization.
+
+The point is the scale and the mess that comes with it. Most API examples are one service with five endpoints, where every problem worth demonstrating has already been designed away. This one has 285 declared service-to-service dependencies and 107 event subscriptions, so questions like *which teams break if this response shape changes* have answers you have to go and find.
+
+## By the numbers
+
+| | |
+|---|---|
+| Services | **101**, each independently deployable |
+| Repositories | **104** — 101 services + 3 meta repos |
+| Business domains | **14** |
+| Languages | Python (94), Go (4), Node (3) |
+| HTTP dependency edges | **285** |
+| Kafka topics | **25** |
+| Event subscription edges | **107** |
+| Databases | **15** Postgres, one per domain |
+| External ERP peers | **9**, in a separate GitHub org |
+
+## Start here
 
 <CardGroup cols={3}>
-  <Card title="Payments" icon="duotone credit-card">
-    Accept one-time and recurring payments with a simple, unified API
+  <Card title="What it covers" icon="duotone hospital" href="/domains">
+    The fourteen business domains, the services in each, and who owns which data.
   </Card>
-  <Card title="Subscriptions" icon="duotone arrows-repeat">
-    Create and manage recurring billing plans with built-in proration and trials
+  <Card title="What to do with it" icon="duotone diagram-project" href="/use-cases">
+    The end-to-end flows that actually run, and what the platform is useful for exercising.
   </Card>
-  <Card title="Invoicing" icon="duotone file-invoice-dollar">
-    Generate, send, and track invoices automatically
+  <Card title="Why it exists" icon="duotone bullseye-arrow" href="/goals">
+    The design goals, the constraints they impose, and what is deliberately left broken.
   </Card>
 </CardGroup>
 
-## Get started
+## Run it
 
-<Steps>
-<Step title="Install the SDK">
+The whole fleet does not need to be running to be useful. `healthcare-infra` ships composable stacks — bring up the seven-service `core` baseline, add `clinical` or `billing` on top, and leave the rest down.
 
-One SDK gives you access to Payments, Subscriptions, and Invoicing. 
-<CodeBlocks>
-  ```bash title="npm"
-  npm install @acme/sdk
-  ```
+<Card title="Run it locally" icon="duotone terminal" href="/run-locally">
+  Prerequisites, the stack catalog, and a first request that emits a real event.
+</Card>
 
-  ```bash title="pip"
-  pip install acme-sdk
-  ```
-
-  ```bash title="go"
-  go get github.com/acme/acme-go
-  ```
-</CodeBlocks>
-
-</Step>
-<Step title="Authenticate">
-
-Create an API key from the Acme Dashboard and add it to your environment:
-
-```bash
-export ACME_API_KEY="sk_live_..."
-```
-
-</Step>
-<Step title="Explore the docs">
-
-You're ready to go. Dive deeper into the platform:
-
-- [API reference](/api-reference) — browse all available endpoints
-- [Write content](/writing-content) — author pages with MDX and components
-- [Edit your docs](/editing-your-docs) — customize content, styling, and structure
-
-</Step>
-</Steps>
+<Note>
+The API Reference currently documents a single service, `prescriptions-service`. The remaining 100 are not yet specified — see [Goals](/goals#what-is-deliberately-incomplete) for where that work stands.
+</Note>
