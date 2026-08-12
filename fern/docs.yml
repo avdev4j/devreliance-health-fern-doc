@@ -62,8 +62,16 @@ navbar-links:
     text: Edit
     url: https://dashboard.buildwithfern.com
 colors:
+  # Postman 2026 brand palette.
+  #
+  # Light mode uses O:80, the only official orange that clears WCAG AA on white:
+  # O:60 (the hero orange) is 2.82:1 and O:70 is 3.87:1, both under 4.5:1.
+  # O:80 is 6.00:1. Fern still emits an advisory asking for 7:1 (AAA) — reaching
+  # that would need a near-black accent, so AA is where this stops.
+  #
+  # Dark mode keeps the hero orange: O:60 is 7.15:1 on #0C0319, AAA already.
   accent-primary:
-    light: "#FF6C37"
+    light: "#B03C12"
     dark: "#FF6C37"
   background:
     light: "#FFFFFF"
@@ -75,10 +83,10 @@ theme:
   page-actions: toolbar
   footer-nav: minimal
 logo:
-  dark: docs/assets/logo-dark.svg
-  light: docs/assets/logo.svg
+  dark: docs/assets/wordmark-dark.svg
+  light: docs/assets/wordmark-light.svg
   height: 20
-  href: https://buildwithfern.com
+  href: /
 favicon: docs/assets/favicon.svg
 css:
   - docs/assets/onboarding-theme.css

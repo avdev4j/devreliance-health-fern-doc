@@ -10,9 +10,10 @@ Everything on this page is implemented and traceable in code — these are not p
 
 ### Patient onboarding
 
-Creating one patient fans out to **nine subscribers** of `patient.created`:
+Creating one patient fans out to **nine subscribers** of `patient.created`, in four kinds of reaction:
 
-`eligibility-service` seeds a pending eligibility check · `patient-consent-service` seeds a HIPAA consent record · `patient-preferences-service` seeds defaults · `patient-communications-service` publishes a welcome `notification.requested` · `patient-timeline-service`, `patient-search-service`, `patient-relationships-service` and `ehr-service` each snapshot the patient locally · `analytics-events-service` records it.
+<img src="../assets/diagrams/patient-created-fanout-light.svg" alt="patient.created fans out to nine services: three seed a record, four snapshot the patient locally, one publishes a welcome notification, one records the event." className="block dark:hidden" />
+<img src="../assets/diagrams/patient-created-fanout-dark.svg" alt="patient.created fans out to nine services: three seed a record, four snapshot the patient locally, one publishes a welcome notification, one records the event." className="hidden dark:block" />
 
 One `POST` produces cascading writes across five domains. It is the shortest way to show why a single endpoint's contract is not a local concern.
 
@@ -20,17 +21,8 @@ One `POST` produces cascading writes across five domains. It is the shortest way
 
 The revenue cycle runs as an event chain, each link a different service and a different domain:
 
-```
-encounter.ended  →  charge-capture-service   builds a charge
-                 →  charge.captured
-                 →  claims-submission-service builds and submits a claim
-                 →  claim.submitted
-                 →  claims-adjudication-service adjudicates
-                 →  claim.adjudicated
-                 →  invoicing-service         computes patient responsibility
-                 →  invoice.issued
-                 →  notifications-service     sends the statement
-```
+<img src="../assets/diagrams/encounter-to-cash-light.svg" alt="encounter.ended triggers charge-capture-service, which publishes charge.captured to claims-submission-service, then claim.submitted to claims-adjudication-service, claim.adjudicated to invoicing-service, and invoice.issued to notifications-service." className="block dark:hidden" />
+<img src="../assets/diagrams/encounter-to-cash-dark.svg" alt="encounter.ended triggers charge-capture-service, which publishes charge.captured to claims-submission-service, then claim.submitted to claims-adjudication-service, claim.adjudicated to invoicing-service, and invoice.issued to notifications-service." className="hidden dark:block" />
 
 Then payment closes the loop. `POST /api/payments/pay` publishes `invoice.paid`, and six services react: the invoice is marked paid, the statement timestamped, any open collections case closed, a receipt sent, the event recorded for analytics, and revenue posted to the external ERP's general ledger.
 
