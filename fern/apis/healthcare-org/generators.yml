@@ -16,20 +16,20 @@ api:
     - openapi:
         git:
           repo: https://github.com/healthcare-org-app/healthcare-appointments
-          ref: main
+          ref: docs/openapi-production-server
           path: openapi.yaml
       namespace: appointments-service
 
     - openapi:
         git:
           repo: https://github.com/healthcare-org-app/healthcare-appointment-slots
-          ref: main
+          ref: docs/openapi-production-server
           path: openapi.yaml
       namespace: appointment-slots-service
 
     - openapi:
         git:
           repo: https://github.com/healthcare-org-app/healthcare-prescriptions
-          ref: main
+          ref: docs/openapi-production-server
           path: openapi.yaml
       namespace: prescriptions-service
